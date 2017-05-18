@@ -31,7 +31,7 @@ const App = (props) => {
 	let currentList, currentSection;
 	if (props.params.listId) {
 		currentList = listsByPath[props.params.listId];
-		// If we're on a list path that doesn't exist (e.g. /keystone/gibberishasfw34afsd) this will
+		// If we're on a list path that doesn't exist (e.g. /admin/gibberishasfw34afsd) this will
 		// be undefined
 		if (!currentList) {
 			children = (

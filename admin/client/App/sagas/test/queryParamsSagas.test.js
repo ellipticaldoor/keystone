@@ -66,7 +66,7 @@ describe('<List /> query param sagas', function () {
 			const size = 100;
 
 			const page = { index, size };
-			const pathname = `/keystone/${currentList.id}`;
+			const pathname = `/admin/${currentList.id}`;
 			const query = {};
 			const location = { pathname, query };
 
@@ -145,7 +145,7 @@ describe('<List /> query param sagas', function () {
 		describe('If the pathame is is not valid', function () {
 			it('bails out', function () {
 				const generator = evalQueryParams();
-				const pathname = '/keystone/badUrl';
+				const pathname = '/admin/badUrl';
 				const query = { query: 'some query' };
 				const locationBeforeTransitions = {
 					pathname,
@@ -178,7 +178,7 @@ describe('<List /> query param sagas', function () {
 		describe('If the query and the cached query are the same', function () {
 			it('puts a QUERY HAS NOT CHANGED action to the store', function () {
 				const generator = evalQueryParams();
-				const pathname = '/keystone/Dictators';
+				const pathname = '/admin/Dictators';
 				const query = { someKey: 'someValue' };
 				const cachedQuery = { someKey: 'someValue' };
 				const locationBeforeTransitions = {
@@ -211,7 +211,7 @@ describe('<List /> query param sagas', function () {
 		describe('If the query and the cached query are different', function () {
 			it('parses the query and puts QUERY HAS CHANGED to the store', function () {
 				const generator = evalQueryParams();
-				const pathname = '/keystone/collection';
+				const pathname = '/admin/collection';
 				const query = { columns: ['name', 'email'], search: 'test search' };
 				const parsedQuery = {
 					columns: ['name', 'email'],
